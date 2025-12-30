@@ -13,35 +13,6 @@ const words = [
   "BACKEND",
 ];
 
-const posibleletters = [
-  "A",
-  "B",
-  "C",
-  "D",
-  "E",
-  "F",
-  "G",
-  "H",
-  "I",
-  "J",
-  "K",
-  "L",
-  "M",
-  "N",
-  "O",
-  "P",
-  "Q",
-  "R",
-  "S",
-  "T",
-  "U",
-  "V",
-  "W",
-  "X",
-  "Y",
-  "Z",
-];
-
 const buttons = [];
 
 let currentStateHiddenWord = [],
@@ -68,21 +39,21 @@ function newGame(time) {
     message.textContent = "";
     lives.textContent = "7";
 
-    for (let i = 0; i < posibleletters.length; ++i) {
+    for (let i = 65; i <= 90; ++i) {
       const button = document.createElement("button");
-      button.textContent = posibleletters[i];
-      button.id = posibleletters[i];
+      button.textContent = String.fromCharCode(i);
+      button.id = String.fromCharCode(i);
       button.classList.add("btn", "btn-primary");
       buttonsContainer.appendChild(button);
       button.addEventListener("click", (e) => {
-        chosenLetter(e.target.id);
+        chooseLetter(e.target.id);
       });
       buttons.push(button);
     }
   }, time);
 }
 
-function chosenLetter(letter) {
+function chooseLetter(letter) {
   const pressedButton = document.getElementById(letter);
   pressedButton.disabled = true;
   let goodLetter = false;
