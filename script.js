@@ -39,10 +39,11 @@ function newGame(time) {
     message.textContent = "";
     lives.textContent = "7";
 
-    for (let i = 65; i <= 90; ++i) {
+    const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+    for (const letter of letters) {
       const button = document.createElement("button");
-      button.textContent = String.fromCharCode(i);
-      button.id = String.fromCharCode(i);
+      button.textContent = letter;
+      button.id = letter;
       button.classList.add("btn", "btn-primary");
       buttonsContainer.appendChild(button);
       button.addEventListener("click", (e) => {
