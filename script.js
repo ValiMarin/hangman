@@ -39,8 +39,8 @@ function newGame(time) {
     message.textContent = "";
     lives.textContent = "7";
 
-    const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
-    for (const letter of letters) {
+    for (let i = "A".charCodeAt(0); i <= "Z".charCodeAt(0); i++) {
+      const letter = String.fromCharCode(i);
       const button = document.createElement("button");
       button.textContent = letter;
       button.id = letter;
